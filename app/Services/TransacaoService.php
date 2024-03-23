@@ -50,5 +50,6 @@ class TransacaoService
         }
 
         $this->conta->saldo -= $valorTotalOperacao;
+        $this->conta->save();
     }
 }
