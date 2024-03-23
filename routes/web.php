@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\ContaController;
-use App\Http\Controllers\TransacaoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,12 +16,3 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-
-
-//O Laravel esta sobrescrevendo o parâmetro 'conta' para 'contum', a adição do parâmetro é para mudar esse compto
-Route::resource('conta', ContaController::class, ['parameters' => [
-    'conta' => 'conta'
-]]);
-
-Route::get('conta', [ContaController::class, 'showById']);
-Route::post('transacao', [TransacaoController::class, 'index']);
