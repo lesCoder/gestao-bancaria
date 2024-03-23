@@ -7,7 +7,7 @@ use App\Models\Conta;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class ApiContaController extends Controller
+class ContaController extends Controller
 {
     /**
      * Display a listing of the resource.
