@@ -20,7 +20,6 @@ class TransacaoController extends Controller
     {
         $resultado = $this->transacaoService->executarTransacao($request->validated());
 
-        //dd($request->conta_id);
         $transacaoLogService = new TransacaoLogService();
 
         $transacaoLogService->store([

@@ -34,15 +34,15 @@ class ContaController extends Controller
      */
     public function store(ContaRequest $request)
     {
-
         $request->validated();
+        
         $dadosConta = [
             'numero_conta' => $request->numero_conta,
             'saldo' => $request->valor
         ];
 
         $conta = Conta::create($dadosConta);
-
+        
         return response()->json([
             'conta' => $conta
         ], Response::HTTP_CREATED);
