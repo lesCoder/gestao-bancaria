@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApiContaController;
+use App\Http\Controllers\ApiTransacaoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,3 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+//O Laravel esta sobrescrevendo o parâmetro 'conta' para 'contum', a adição do parâmetro é para mudar esse compto
+Route::resource('conta', ApiContaController::class, ['parameters' => [
+    'conta' => 'conta'
+]]);
+
+Route::get('conta', [ApiContaController::class, 'showById']);
+Route::post('transacao', [ApiTransacaoController::class, 'index']);
+
+// Adiciona uma rota PATCH específica para atualizar o saldo, a padrão nao esta funcionando
+//Route::patch('contas/{conta}', [ApiContaController::class, 'update'])->name('contas.aumentarSaldo');
