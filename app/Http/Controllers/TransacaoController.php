@@ -33,7 +33,7 @@ class TransacaoController extends Controller
             return response()->json([
                 'message' => $resultado['message'],
                 'conta' => $resultado['conta']
-            ], Response::HTTP_OK);
+            ], Response::HTTP_CREATED);
         } else {
             return response()->json([
                 'message' => $resultado['message']

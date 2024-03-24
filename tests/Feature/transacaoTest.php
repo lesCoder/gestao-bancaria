@@ -81,7 +81,7 @@ class transacaoTest extends TestCase
         ];
 
         $this->json('post', 'api/transacao', $payload)
-            ->assertStatus(Response::HTTP_OK);
+            ->assertStatus(Response::HTTP_CREATED);
         //->assertJson([
         //    'conta_id' => 1234,
         //    'saldo' => 189.70
