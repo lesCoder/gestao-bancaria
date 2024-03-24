@@ -9,20 +9,30 @@
 
 ## Executando a Aplicação
 
-    * Esta aplicação faz uso do sail para evitar problemas de "na minha máquina funciona". Vamos aos comandos:
-    ./vendor/bin/sail up --Sobe os containers.
-    * Acesse o container de nome "gestao-bancaria-laravel.test-1" com o comando
+    ### Esta aplicação faz uso do sail para evitar problemas de "na minha máquina funciona". Vamos aos comandos:
+        ./vendor/bin/sail up --Sobe os containers.
+    
+    ### Acesse o container de nome "gestao-bancaria-laravel.test-1" com o comando
         docker exec -it <ID DO CONTAINER> /bin/bash
-    Rode a suite de testes, ela faz a verificação da aplicação e suas funcionalidades
+    
+    ### Instale as dependências do projeto com docker
+        composer install
+
+    ### Copie o conteúdo do arquivo .env.exemple para o .env
+
+    ### Rode as migrações
+        php artisan migrate
+
+    ### Rode a suite de testes, ela faz a verificação da aplicação e suas funcionalidades
         php artisan test
 
 ## Endpoint da Aplicação
 
-    1. Criar uma Conta
+# 1. Criar uma Conta
 
 Este endpoint permite criar uma nova conta com o número especificado e um saldo inicial.
 
-URL: POST http://localhost/api/conta
+    URL: POST http://localhost/api/conta
 
 Exemplo do Corpo da Solicitação (JSON):
 
@@ -33,49 +43,51 @@ Exemplo do Corpo da Solicitação (JSON):
 
 Resposta de Sucesso (HTTP 201 Created):
 
-{
-    "status": true,
-    "message": "Conta criada com sucesso!"
-}
+    {
+        "status": true,
+        "message": "Conta criada com sucesso!"
+    }
 
-2. Obter Detalhes da Conta
+
+
+# 2. Obter Detalhes da Conta
 Este endpoint permite obter os detalhes de uma conta específica com base no ID da conta fornecido.
 
-URL: GET http://localhost/api/conta/{id}
+    URL: GET http://localhost/api/conta/{id}
 
 Parâmetros de URL:
 
 {id}: O ID da conta que deseja consultar.
 Resposta de Sucesso (HTTP 200 OK):
 
-{
-    "id": 11,
-    "saldo": 500.00
-}
+    {
+        "id": 11,
+        "saldo": 500.00
+    }
 
-3. Realizar uma Transação
+# 3. Realizar uma Transação
 Este endpoint permite realizar uma transação financeira em uma conta específica.
 
-URL: POST http://localhost/api/transacao
+    URL: POST http://localhost/api/transacao
 
 Exemplo do Corpo da Solicitação (JSON):
 
-{
-    "conta_id": 11,
-    "forma_pagamento": "P",
-    "valor": 75
-}
+    {
+        "conta_id": 11,
+        "forma_pagamento": "P",
+        "valor": 75
+    }
 
 Resposta de Sucesso (HTTP 201 Created):
 
 
-{
-    "message": "Transação realizada com sucesso.",
-    "conta": {
-        "numero_conta": "112233",
-        "saldo": 65
+    {
+        "message": "Transação realizada com sucesso.",
+        "conta": {
+            "numero_conta": "112233",
+            "saldo": 65
+        }
     }
-}
 
 
 ## License
