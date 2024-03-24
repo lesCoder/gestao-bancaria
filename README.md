@@ -7,23 +7,25 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Executando a Aplicação
+# Executando a Aplicação
 
-    ### Esta aplicação faz uso do sail para evitar problemas de "na minha máquina funciona". Vamos aos comandos:
-        ./vendor/bin/sail up --Sobe os containers.
+### Esta aplicação faz uso do sail (Docker) para evitar problemas de "na minha máquina funciona". Vamos aos comandos:
+### Sobe os containers.
+        ./vendor/bin/sail up
     
-    ### Acesse o container de nome "gestao-bancaria-laravel.test-1" com o comando
+### Acesse o container de nome "gestao-bancaria-laravel.test-1" com os comandos abaixo, sendo o primeiro para listar e o segundo para fazer o acesso remoto
+        docker container ls
         docker exec -it <ID DO CONTAINER> /bin/bash
     
-    ### Instale as dependências do projeto com docker
+### Instale as dependências do projeto com docker
         composer install
 
-    ### Copie o conteúdo do arquivo .env.exemple para o .env
+### Copie o conteúdo do arquivo .env.exemple para o .env
 
-    ### Rode as migrações
+### Rode as migrações
         php artisan migrate
 
-    ### Rode a suite de testes, ela faz a verificação da aplicação e suas funcionalidades
+### Rode a suite de testes, ela faz a verificação da aplicação e suas funcionalidades, se tudo passar estamos bem.
         php artisan test
 
 ## Endpoint da Aplicação
