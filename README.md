@@ -8,6 +8,9 @@
 </p>
 
 # Executando a Aplicação
+    Esta é uma aplicação simples que cria, realiza e registra operações financeiras em uma conta.
+    A implementação é feita utilizando o framework Laravel com testes unitários
+# Executando a Aplicação
 
 ### Esta aplicação faz uso do sail (Docker) para evitar problemas de "na minha máquina funciona". Vamos aos comandos:
 ### Sobe os containers.
@@ -39,8 +42,8 @@ Este endpoint permite criar uma nova conta com o número especificado e um saldo
 Exemplo do Corpo da Solicitação (JSON):
 
     {
-    "numero_conta": "112233",
-    "valor": 500.00
+        "numero_conta": "112233",
+        "valor": 500.00
     }
 
 Resposta de Sucesso (HTTP 201 Created):
